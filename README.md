@@ -26,7 +26,7 @@ To achieve these functionalities, we will use following technology stack:
 
 ## Brief UIs of Hey
 
-![Zalopay Auth App](https://github.com/zalopay-oss/hey-app/blob/master/presentation/image001.gif)
+![Zalopay Auth App](https://github.com/A1Darkwing/zalo-auth/)
 
 ## Getting Started
 
@@ -47,11 +47,11 @@ docker-compose up --build
 
 ## Document
 
-https://github.com/zalopay-oss/hey-app/wiki
+https://github.com/A1Darkwing/zalo-auth/wiki
 
 ## Support
 
-- Any bugs about Hey please feel free to report [here](https://github.com/zalopay-oss/hey-app/issues).
+- Any bugs about Hey please feel free to report [here](https://github.com/A1Darkwing/zalo-auth/issues).
 - And you are welcome to fork and submit pull requests.
 
 ## Authors
@@ -60,7 +60,7 @@ https://github.com/zalopay-oss/hey-app/wiki
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/zalopay-oss/hey-app/blob/master/LICENSE.md)
+This project is licensed under the [MIT License](https://github.com/A1Darkwing/zalo-auth/blob/master/LICENSE.md)
 
 ## Acknowledgments
 
