@@ -1,0 +1,92 @@
+version: '3.5'
+
+networks:
+  kong-net:
+
+volumes:
+  kong-datastore:
+  keycloak-datastore:
+
+services:
+  kong-db:
+    image: postgres:latest
+    volumes:
+      - kong-datastore:/var/lib/postgresql/data
+    networks:
+      - kong-net
+    ports:
+      - "15432:5432"
+    environment:
+      POSTGRES_DB:       api-gw
+      POSTGRES_USER:     kong
+      POSTGRES_PASSWORD:
+
+  keycloak-db:
+    image: postgres:latest
+    volumes:
+      - keycloak-datastore:/var/lib/postresql/data
+    networks:
+      - kong-net
+    ports:
+      - "25432:5432"
+    environment:
+      POSTGRES_DB:       keycloak
+      POSTGRES_USER:     keycloak
+      POSTGRES_PASSWORD: password
+
+  kong:
+    image: kong:1.1.1-centos-oidc
+    depends_on:
+      - kong-db
+    networks:
+      - kong-net
+    ports:
+      - "8000:8000" # Listener
+      - "8001:8001" # Admin API
+      - "8443:8443" # Listener  (SSL)
+      - "8444:8444" # Admin API (SSL)
+    environment:
+      KONG_DATABASE:         postgres
+      KONG_PG_HOST:          kong-db
+      KONG_PG_PORT:          5432
+      KONG_PG_DATABASE:      api-gw
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG:  /dev/stderr
+      KONG_ADMIN_ERROR_LOG:  /dev/stderr
+      KONG_PROXY_LISTEN:     0.0.0.0:8000, 0.0.0.0:8443 ssl
+      KONG_ADMIN_LISTEN:     0.0.0.0:8001, 0.0.0.0:8444 ssl
+      KONG_CUSTOM_PLUGINS:   oidc
+      KONG_PLUGINS:          oidc, oauth2, acl, ip-restriction, correlation-id, statsd, jwt, cors, request-transformer, basic-auth, key-auth, rate-limiting, file-log, http-log, prometheus, hmac-auth, ldap-auth, datadog, tcp-log, zipkin, post-function, syslog, bot-detection, kubernetes-sidecar-injector, request-size-limiting, azure-functions, udp-log, response-ratelimiting, aws-lambda, pre-function, loggly, request-termination
+      #KONG_NGINX_HTTP_INCLUDE: /etc/kong/my-server.kong.conf
+
+  keycloak:
+    # image: jboss/keycloak:latest
+    build:
+      context: ./docker/keycloak-cas/
+      dockerfile : Dockerfile
+    image: keycloak-cas:keycloak-5.0.0-cas
+    depends_on:
+      - keycloak-db
+    networks:
+      - kong-net
+    ports:
+      - "8180:8080"
+    environment:
+      DB_VENDOR:   POSTGRES
+      DB_ADDR:     keycloak-db
+      DB_PORT:     5432
+      DB_DATABASE: keycloak
+      DB_USER:     keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER:     admin
+      KEYCLOAK_PASSWORD: admin
+
+  konga:
+    image: pantsel/konga:latest
+    depends_on:
+      - kong
+    networks:
+      - kong-net
+    ports:
+      - "1337:1337"

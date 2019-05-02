@@ -24,13 +24,14 @@ To achieve these functionalities, we will use following technology stack:
 - JWT in access token
 
 
-## Brief UIs of Hey
+## Brief UIs of Zalopay Auth
 
 ![Zalopay Auth App](https://github.com/A1Darkwing/zalo-auth/)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. For more detail please refer to our [wiki](https://github.com/zalopay-oss/hey-app/wiki).
+These instructions will get you a copy of the project up and running on your local machine for development and 
+testing purposes. For more detail please refer to our [wiki](https://github.com/zalopay-oss/zalo-auth/wiki).
 
 ### Prerequisites
 
@@ -51,7 +52,7 @@ https://github.com/A1Darkwing/zalo-auth/wiki
 
 ## Support
 
-- Any bugs about Hey please feel free to report [here](https://github.com/A1Darkwing/zalo-auth/issues).
+- Any bugs about Zalopay Auth please feel free to report [here](https://github.com/A1Darkwing/zalo-auth/issues).
 - And you are welcome to fork and submit pull requests.
 
 ## Authors
