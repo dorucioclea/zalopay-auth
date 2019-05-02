@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/documents/documents.iml" filepath="$PROJECT_DIR$/documents/documents.iml" />
       <module fileurl="file://$PROJECT_DIR$/zalopay-auth-server/zalopay-auth-server.iml" filepath="$PROJECT_DIR$/zalopay-auth-server/zalopay-auth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/zalopay-auth-web/zalopay-auth-web.iml" filepath="$PROJECT_DIR$/zalopay-auth-web/zalopay-auth-web.iml" />
     </modules>

@@ -26,7 +26,7 @@ To achieve these functionalities, we will use following technology stack:
 
 ## Brief UIs of Zalopay Auth
 
-![Zalopay Auth App](https://giphy.com/embed/dAW14W0JWaZcAObOdZ)
+![Zalopay Auth App](https://github.com/A1Darkwing/zalo-auth/blob/master/documents/Zalo-Auth.gif)
 
 ## Getting Started
 
