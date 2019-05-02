@@ -49,12 +49,14 @@ docker-compose up
 - Go to zalopay-auth-web folder and run command 
 
 ```
+npm install
 npm run start
 ```
 
 - Go to zalopay-auth-server folder and run command 
 
 ```
+mvn install
 mvn spring-boot:run
 ```
 
