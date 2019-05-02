@@ -11,12 +11,12 @@ The project will have following functions:
 - Force log out user
 - Disable user
 - Tracking request/response to services
-- Allow user to access to others services without login require
+- Allow user to access to others services without login again
 
 To achieve these functionalities, we will use following technology stack:
 
 - React JS with Redux Saga for client side development
-- Ant.design for UI/UX design
+- Ant.design pro for UI/UX design
 - Spring boot for develop the API server
 - Kong for API Gateway
 - Keycloak as an Authorization service
