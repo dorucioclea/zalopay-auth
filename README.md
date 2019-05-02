@@ -40,10 +40,22 @@ You will need Docker in order to run this application
 
 ### Installing
 
-- Everything has been summed in the docker-compose.yaml file. You just only need to travel to the root folder of the project then run 
+- Go to docker folder and run command 
 
 ```
-docker-compose up --build
+docker-compose up
+```
+
+- Go to zalopay-auth-web folder and run command 
+
+```
+npm run start
+```
+
+- Go to zalopay-auth-server folder and run command 
+
+```
+mvn spring-boot:run
 ```
 
 ## Document
